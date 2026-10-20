@@ -1,6 +1,5 @@
-import Icon from "./Icon.jsx";
 import SectionHead from "./SectionHead.jsx";
-import { profile, details } from "../data.js";
+import { profile } from "../data.js";
 
 export default function About() {
   return (
@@ -13,36 +12,38 @@ export default function About() {
               <p key={text}>{text}</p>
             ))}
           </div>
-          <div className="term" role="group" aria-label="Profile summary">
-            {/* <div className="term-bar">
-              <i />
-              <i />
-              <i />
-              <em>profile.txt</em>
-            </div> */}
-            <div className="term-body">
-              {/* <p className="cmd">
-                <b>$</b> whoami --details
-              </p> */}
-              <dl>
-                {details.map(([icon, label, value]) => (
-                  <div key={label} style={{ display: "contents" }}>
-                    <dt>
-                      <Icon name={icon} size={15} />
-                      {label}
-                    </dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="cmd">
-                status
-              </p>
-              <p className="live">
-                <span className="dot" />
-                open to opportunities
-              </p>
+
+          <div className="cyber-panel" role="group" aria-label="Cybersecurity status panel">
+            <div className="cyber-panel__hud">
+              <span className="hud-dot" />
+              <span>security overview</span>
+              <span className="hud-live">live</span>
             </div>
+
+            <div className="cyber-orbit" aria-hidden="true">
+              <div className="ring ring-one" />
+              <div className="ring ring-two" />
+              <div className="core">
+                <strong>01</strong>
+                <small>Threat Model</small>
+              </div>
+              <div className="scan-line" />
+            </div>
+
+            {/* <div className="cyber-stats">
+              <div>
+                <small>Focus</small>
+                <strong>Network Defense</strong>
+              </div>
+              <div>
+                <small>Tools</small>
+                <strong>Nmap / Wireshark</strong>
+              </div>
+              <div>
+                <small>Status</small>
+                <strong>Open to work</strong>
+              </div>
+            </div> */}
           </div>
         </div>
       </div>

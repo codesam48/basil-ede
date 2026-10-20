@@ -109,7 +109,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <span className="k">{r.label}</span>
-                  {r.body}
+                  <span className="link">{r.body}</span>
                 </div>
               </li>
             ))}

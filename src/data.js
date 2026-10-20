@@ -7,7 +7,7 @@ export const profile = {
   email: "basilchi91@gmail.com",
   phone: "07066039914",
   linkedin: "https://www.linkedin.com/in/basil-ede-6a814ba8",
-  linkedinLabel: "linkedin.com/in/basil-ede-6a814ba8",
+  linkedinLabel: "Linkedin Profile",
   intro:
     "I test networks and web applications for weaknesses before someone else finds them. My background is in computer engineering and cybersecurity, with a focus on penetration testing and network security.",
   about: [
