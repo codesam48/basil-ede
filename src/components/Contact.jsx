@@ -33,10 +33,17 @@ export default function Contact() {
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
   const draft =
+    `From: ${form.name.trim()} <${form.email.trim()}>\n` +
     `To: ${profile.email}\n` +
     `Subject: Portfolio message from ${form.name.trim()}\n\n` +
     `${form.message.trim()}\n\n` +
     `Reply to: ${form.email.trim()}`;
+
+  const mailtoHref = `mailto:${profile.email}?subject=${encodeURIComponent(
+    `Portfolio message from ${form.name.trim()}`
+  )}&body=${encodeURIComponent(
+    `Name: ${form.name.trim()}\nEmail: ${form.email.trim()}\n\n${form.message.trim()}`
+  )}`;
 
   function submit(e) {
     e.preventDefault();
@@ -48,6 +55,7 @@ export default function Contact() {
     setError("");
     setCopied("");
     setComposed(true);
+    window.location.href = mailtoHref;
   }
 
   async function copyDraft() {
@@ -148,11 +156,15 @@ export default function Contact() {
             {composed && (
               <div className="compose">
                 <p>
-                  This page cannot send email by itself. Copy the message below and send it to{" "}
+                  Your email app should open with the message already filled in and sent to{" "}
                   <strong>{profile.email}</strong>.
                 </p>
                 <pre>{draft}</pre>
                 <div className="actions">
+                  <a className="btn" href={mailtoHref}>
+                    <Icon name="send" size={16} />
+                    Send via email
+                  </a>
                   <button className="btn" type="button" onClick={copyDraft}>
                     <Icon name="copy" size={16} />
                     Copy message
